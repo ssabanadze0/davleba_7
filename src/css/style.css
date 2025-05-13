@@ -21,7 +21,65 @@ img {
 .container {
   position: relative;
 }
+/* oposite slider  */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  contain: layout paint;
+}
 
+img {
+  position: absolute;
+  width: 500px;
+  height: auto;
+  top: 50%;
+  transform: translatey(-50%);
+}
+
+/* Initial positions */
+.photo1,
+.photo2 {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+}
+
+.photo1 {
+  left: 35%;
+  animation: moveLeft 6s cubic-bezier(0.02, 0.47, 0.39, 0.99) infinite;
+}
+
+.photo2 {
+  right: 35%;
+  animation: moveRight 6s cubic-bezier(0.02, 0.47, 0.39, 0.99) infinite;
+}
+
+/* Keyframes */
+@keyframes moveLeft {
+  0% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) translateX(-900px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) translateX(900px);
+    opacity: 0;
+  }
+}
+
+/* hover */
 .square1 {
   width: 500px;
   aspect-ratio: 4/5;
